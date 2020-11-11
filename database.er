@@ -1,0 +1,76 @@
+title {label: "Mercedtime Database design", size: "20"}
+
+entity {bgcolor: "#ececfc"}
+
+# TODO - add sections to the labs/disc
+#      - add subject as a field and maybe a new table
+
+[all]
+    *crn {label: "int"}
+    course_num
+    type
+
+# Holds lecture info as well as general info on
+# the course including start date and end date
+# which will be the same for the labs/discussions
+# associated with the course
+[lecture] {bgcolor: "#fcecec"}
+    *crn {label: "int"}
+    course_num
+    title
+    units
+    activity
+    days
+    time
+    building
+    start_date
+    end_date
+    +instuctor_id {label: "int"}
+
+lecture 1--1 all
+lecture 1--* labs_disc
+
+[labs_disc] {bgcolor: "#fcecec"}
+    *crn
+    +course_crn
+    course_num
+    section
+    title
+    units
+    activity
+    days
+    time
+    building
+    +ta_id {label: "int"}
+
+all 1--1 labs_disc {label: "crn"}
+all *--* labs_disc {label: "course number"}
+
+[exam]
+    *crn {label: "int"}
+    date {label: "date"}
+    start_time
+    end_time
+
+lecture 1--1 exam
+
+[instructor]
+    *id {label: "int"}
+    name {label: "string"}
+
+lecture   1--1 instructor
+labs_disc *--1 instructor
+
+[prerequisites]
+    *crn {label: "int"}
+    prereq_crn {label: "int"}
+
+[enrollment]
+    *crn
+    description
+    capacity
+    enrolled
+    remaining
+
+enrollment +--+ prerequisites
+enrollment 1--1 all

@@ -13,6 +13,7 @@ application so we want to build our own for the students here at UC Merced.
 
 Use Cases
 ---------
+
 * **More Pluggable** - Connect the data with other services such as
   _Rate My Professor_ and _Canvas_
 * **Automated course tracking** - users will be able to track openings in and
@@ -25,6 +26,7 @@ Use Cases
 
 Database Design
 ---------------
+
 ### UML & Relational Model
 The majority of our database is centered around the CRN which is not an ID that
 we have control of which may be an issue in the development phase by we will
@@ -41,13 +43,14 @@ cross that bridge when we get there.
 
 TODO
 ----
+
 * Notifications
 * Integration with Canvas and RateMyProfessor
 * Get average course grades
 * Mobile App???
 
-
 ### Authors
 * Noah McCullah
 * Harrison Brown
 
+•
