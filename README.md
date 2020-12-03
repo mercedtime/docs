@@ -52,5 +52,3 @@ TODO
 ### Authors
 * Noah McCullah
 * Harrison Brown
-
-•
